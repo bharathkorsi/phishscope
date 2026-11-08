@@ -1,0 +1,27 @@
+From: Example IT Support <support@helpdesk.example>
+To: alex@company.example
+Reply-To: verify@account-check.example
+Subject: Urgent: verify your account
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3536286129756645601=="
+
+--===============3536286129756645601==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Your account will be suspended today.
+Verify your login immediately:
+https://account-check.example/verify
+
+This is a fictional training email.
+
+--===============3536286129756645601==
+Content-Type: text/plain
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="invoice.txt"
+MIME-Version: 1.0
+
+RmljdGlvbmFsIGludm9pY2UgZm9yIHNlY3VyaXR5IHRyYWluaW5nLiBObyBleGVjdXRhYmxlIGNv
+bnRlbnQuCg==
+
+--===============3536286129756645601==--

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhishScope — Email Triage Report</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #101827; color: #e5edf7;
+  font: 16px/1.6 system-ui, sans-serif;
+}
+main { max-width: 1100px; margin: auto; padding: 32px 20px; }
+h1 { font-size: 38px; margin-bottom: 4px; }
+.subtitle, footer { color: #b6c5d8; }
+.stats { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0; }
+.stat, section {
+  background: #1a2638; border: 1px solid #34465f;
+  border-radius: 12px; padding: 22px;
+}
+.stat { flex: 1; min-width: 170px; }
+.stat strong { display: block; font-size: 28px; color: #78e2ce; }
+section { margin-bottom: 24px; }
+.badge {
+  display: inline-block; background: #33425b; color: #e5edf7;
+  padding: 4px 12px; border-radius: 20px; font-size: 12px;
+}
+dt { font-weight: bold; color: #b6c5d8; }
+dd { margin: 0 0 10px; overflow-wrap: anywhere; }
+li { margin-bottom: 12px; }
+code { overflow-wrap: anywhere; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 10px; border-bottom: 1px solid #34465f; }
+td:last-child { min-width: 220px; }
+.assessment { border-left: 3px solid #ffdb8d; padding-left: 12px; }
+</style>
+</head>
+<body><main>
+<h1>PhishScope</h1>
+<p class="subtitle">Python automation for evidence-based email triage</p>
+
+<div class="stats">
+  <div class="stat"><strong>2</strong>Emails analyzed</div>
+  <div class="stat">
+    <strong>10/10</strong>
+    Saved validation results
+  </div>
+  <div class="stat"><strong>Offline</strong>Local file analysis</div>
+</div>
+
+<section>
+  <span class="badge">NO CONFIGURED INDICATORS</span>
+  <h2>ordinary-demo.eml</h2>
+  <dl>
+    <dt>Subject</dt><dd>Weekly team meeting</dd>
+    <dt>From</dt><dd>Example Team &lt;team@company.example&gt;</dd>
+    <dt>Reply-To</dt><dd>team@company.example</dd>
+  </dl>
+  <h3>Review indicators</h3>
+  <ul><li>No configured indicators identified.</li></ul>
+  <h3>Extracted URLs — defanged</h3>
+  <ul><li>No plain-text HTTP(S) URLs extracted.</li></ul>
+  <h3>Attachment metadata</h3>
+  <p>No attachments identified.</p>
+  <p class="assessment">No configured indicators identified; safety not established.</p>
+  <details>
+    <summary>Email file SHA-256</summary>
+    <code>8038db0b3e13696d6c182a6d405b2a7068fd5a88da74b8080a47c49d208658dd</code>
+  </details>
+</section>
+
+<section>
+  <span class="badge">REVIEW INDICATORS FOUND</span>
+  <h2>suspicious-demo.eml</h2>
+  <dl>
+    <dt>Subject</dt><dd>Urgent: verify your account</dd>
+    <dt>From</dt><dd>Example IT Support &lt;support@helpdesk.example&gt;</dd>
+    <dt>Reply-To</dt><dd>verify@account-check.example</dd>
+  </dl>
+  <h3>Review indicators</h3>
+  <ul><li><strong>REPLY_TO_DOMAIN_MISMATCH</strong><br>Sender and Reply-To domains differ; verify the context.</li><li><strong>URGENCY_LANGUAGE</strong><br>Review urgency wording: urgent, immediately, suspended</li></ul>
+  <h3>Extracted URLs — defanged</h3>
+  <ul><li><code>hxxps://account-check[.]example/verify</code></li></ul>
+  <h3>Attachment metadata</h3>
+  <div class='scroll'><table><thead><tr><th>Filename</th><th>Type</th><th>Bytes</th><th>SHA-256</th></tr></thead><tbody><tr><td>invoice.txt</td><td>text/plain</td><td>64</td><td><code>24962bb7c2a7d68ac0c82a39dc837db512d3baf5bee63175397aebeffc2befc0</code></td></tr></tbody></table></div>
+  <p class="assessment">Review indicators identified; maliciousness undetermined.</p>
+  <details>
+    <summary>Email file SHA-256</summary>
+    <code>c130d1c316a2025ec9e47fdb1ce3d50d651473bc1af6bb39fbc972faf2a7daee</code>
+  </details>
+</section>
+
+<footer>
+<p>Demonstration uses fictional emails. Findings are review indicators;
+absence of findings does not establish safety.</p>
+<p>Plain-text body URL extraction only. SPF, DKIM, DMARC, HTML links,
+and reputation are not assessed. Attachment hashes identify content;
+they do not determine maliciousness.</p>
+<p>Built from saved analysis and validation files. Rerun analysis,
+validation, and report generation before sharing updated results.</p>
+</footer>
+</main></body></html>

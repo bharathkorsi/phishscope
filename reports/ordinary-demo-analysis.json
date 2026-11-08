@@ -1,0 +1,17 @@
+{
+  "file": "ordinary-demo.eml",
+  "email_sha256": "8038db0b3e13696d6c182a6d405b2a7068fd5a88da74b8080a47c49d208658dd",
+  "sender": "Example Team <team@company.example>",
+  "reply_to": "team@company.example",
+  "subject": "Weekly team meeting",
+  "urls_defanged": [],
+  "attachments": [],
+  "findings": [],
+  "assessment": "No configured indicators identified; safety not established.",
+  "limitations": [
+    "Only plain-text body URLs are extracted.",
+    "SPF, DKIM, and DMARC are not verified.",
+    "No reputation lookups or attachment execution are performed.",
+    "Domain mismatch and urgency can occur in legitimate emails."
+  ]
+}

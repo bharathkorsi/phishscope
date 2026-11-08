@@ -1,0 +1,35 @@
+{
+  "file": "suspicious-demo.eml",
+  "email_sha256": "c130d1c316a2025ec9e47fdb1ce3d50d651473bc1af6bb39fbc972faf2a7daee",
+  "sender": "Example IT Support <support@helpdesk.example>",
+  "reply_to": "verify@account-check.example",
+  "subject": "Urgent: verify your account",
+  "urls_defanged": [
+    "hxxps://account-check[.]example/verify"
+  ],
+  "attachments": [
+    {
+      "filename": "invoice.txt",
+      "content_type": "text/plain",
+      "size_bytes": 64,
+      "sha256": "24962bb7c2a7d68ac0c82a39dc837db512d3baf5bee63175397aebeffc2befc0"
+    }
+  ],
+  "findings": [
+    {
+      "code": "REPLY_TO_DOMAIN_MISMATCH",
+      "reason": "Sender and Reply-To domains differ; verify the context."
+    },
+    {
+      "code": "URGENCY_LANGUAGE",
+      "reason": "Review urgency wording: urgent, immediately, suspended"
+    }
+  ],
+  "assessment": "Review indicators identified; maliciousness undetermined.",
+  "limitations": [
+    "Only plain-text body URLs are extracted.",
+    "SPF, DKIM, and DMARC are not verified.",
+    "No reputation lookups or attachment execution are performed.",
+    "Domain mismatch and urgency can occur in legitimate emails."
+  ]
+}
