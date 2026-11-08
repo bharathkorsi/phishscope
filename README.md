@@ -6,6 +6,8 @@ A Python prototype that analyzes saved email files, identifies
 selected review indicators, extracts URLs, hashes attachments,
 and generates JSON and HTML reports.
 
+![PhishScope email triage report](screenshots/phishscope-demo.png)
+
 ## Features
 
 - Batch analysis of local .eml files.
